@@ -1,0 +1,94 @@
+html{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "montserrat";
+}
+
+body{
+  background: #333;
+  max-width:100%;
+overflow: hidden;
+}
+
+.middle{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.card{
+  cursor:crosshair;
+  width: 340px;
+  height:480px;
+}
+
+.front,.back{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  backface-visibility:hidden;
+  position:absolute;
+  transition: transform .6s linear;
+}
+
+.front img{
+  height:100%;
+}
+
+.front{
+  transform: perspective(600px) rotateY(0deg);
+  border: 10px solid;
+  border-image-source:linear-gradient(to top left, #ff9933 0%, #ff0066 100%);
+  border-image-slice: 1;
+}
+
+.back{
+  background: #993333;
+  transform: perspective(600px) rotateY(180deg);
+  border: 10px solid;
+  border-image-source:linear-gradient(to top right, #ff9933 0%, #ff0066 100%);
+  border-image-slice: 1;
+}
+
+.back-content{
+  color:#ff9933;
+  text-align:center;
+  width:100%;
+  font-family: montserrat;
+}
+
+.back-content span{
+  color:#ffcccc;
+}
+
+
+
+.sm{
+  margin:20px 0;
+}
+
+.sm a {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  color: #ff9933;
+  font-size:18px;
+  transition: 0.4s;
+  border-radius:50%;
+}
+
+.sm a:hover {
+  background: #ff0066;
+  color:white;
+}
+
+.card:hover > .front{
+transform: perspective(600px) rotateY(-180deg);
+}
+.card:hover > .back{
+transform: perspective(600px) rotateY(0deg);
+}
